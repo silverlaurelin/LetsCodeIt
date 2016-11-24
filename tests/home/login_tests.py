@@ -22,6 +22,7 @@ class LoginTests(unittest.TestCase):
 
     @pytest.mark.run(order=1)
     def test_invalidLogin(self):
+        self.lp.logOut()
         self.lp.login("test@email.com", "abcabcabc")
         result = self.lp.verifyLoginFailed()
         self.ts.mark(result, "Login Fail Verified")

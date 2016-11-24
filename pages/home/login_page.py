@@ -1,6 +1,7 @@
 import utilities.custom_logger as cl
 import logging
 from base.basepage import BasePage
+from pages.home.navigation_page import NavigationPage
 
 
 class LoginPage(BasePage):
@@ -10,6 +11,7 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
         self.driver = driver
+        self.nav = NavigationPage(driver)
 
     #locators
     _login_link =  ".//a[@class='navbar-link fedora-navbar-link']"
@@ -47,5 +49,10 @@ class LoginPage(BasePage):
 
     def verifyLoginTitle(self):
         return self.verifyPageTitle("Let's Kode It")
+
+    def logOut(self):
+        self.nav.navigateToUserSettings()
+        self.elementClick(locator = ".//a[contains(text(),'Log out')]", locatorType="xpath" )
+
 
 
