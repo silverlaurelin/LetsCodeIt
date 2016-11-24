@@ -59,7 +59,7 @@ class WebDriverFactory():
         else:
             driver = webdriver.Chrome(r"D:\projects\DRIVERS\chromedriver.exe")
         # Setting Driver Implicit Time out for An Element
-        driver.implicitly_wait(30)
+        driver.implicitly_wait(15)
         # Maximize the window
         driver.maximize_window()
         # Loading browser with App URL
