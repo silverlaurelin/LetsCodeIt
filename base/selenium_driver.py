@@ -6,12 +6,16 @@ from selenium.common.exceptions import *
 import utilities.custom_logger as cl
 import logging
 
-
 class SeleniumDriver(object):
+
     log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
         self.driver = driver
+
+    def getTitle(self):
+        return self.driver.title
+
 
     def getByType(self, locatorType):
         locatorType = locatorType.lower()
