@@ -24,3 +24,7 @@
 (firefox:3591): GLib-GObject-CRITICAL **: g_type_add_interface_static: assertion 'g_type_parent (interface_type) == G_TYPE_INTERFACE' failed
 
 (firefox:3591): GLib-GObject-CRITICAL **: g_type_add_interface_static: assertion 'g_type_parent (interface_type) == G_TYPE_INTERFACE' failed
+1479968425793	geckodriver	INFO	Listening on 127.0.0.1:37143
+1479968426561	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.uRbjecqyZzry
+1479968426562	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox
+1479968426588	geckodriver::marionette	INFO	Connecting to Marionette on localhost:44013

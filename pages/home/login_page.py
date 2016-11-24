@@ -30,7 +30,7 @@ class LoginPage(SeleniumDriver):
 
 
     def clickLoginLink(self):
-        self.elementClick(self._login_link, locatorType="link")
+        self.elementClick(self._login_link, locatorType="xpath")
 
     def enterEmail(self, email):
         self.sendKeys(email, self._email_field)
