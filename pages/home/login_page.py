@@ -1,9 +1,11 @@
-from selenium.webdriver.common.by import By
+import utilities.custom_logger as cl
+import logging
+from base.basepage import BasePage
 
-from base.selenium_driver import SeleniumDriver
 
+class LoginPage(BasePage):
 
-class LoginPage(SeleniumDriver):
+    log = cl.customLogger(logging.DEBUG)
 
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
@@ -43,10 +45,7 @@ class LoginPage(SeleniumDriver):
         result = self.isElementPresent(".//div[@class='alert alert-danger' and contains(text(), 'Invalid email or password')]", locatorType="xpath")
         return result
 
-    def verifyTitle(self):
-         if "Let's Kode It" in self.getTitle():
-             return True
-         else:
-             return False
+    def verifyLoginTitle(self):
+        return self.verifyPageTitle("Let's Kode It")
 
 
