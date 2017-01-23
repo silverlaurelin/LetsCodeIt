@@ -1,3 +1,4 @@
+from datetime import datetime
 from selenium.webdriver.common.by import By
 from traceback import print_stack
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,6 +8,8 @@ import utilities.custom_logger as cl
 import logging
 import time
 import os
+
+
 
 class SeleniumDriver(object):
 
@@ -19,7 +22,7 @@ class SeleniumDriver(object):
         """
         Takes screenshot of the current open web page
         """
-        fileName = resultMessage + "." + str(round(time.time() * 1000)) + ".png"
+        fileName = resultMessage + "." + str(datetime.datetime.now()) + ".png"
         screenshotDirectory = "../screenshots/"
         relativeFileName = screenshotDirectory + fileName
         currentDirectory = os.path.dirname(__file__)

@@ -15,7 +15,7 @@ class NavigationPage(BasePage):
     _my_courses = "All Courses"
     _all_courses = "My Courses"
     _practice = "Practice"
-    _user_settings_icon = ".//img[@class='gravatar']"
+    _user_settings_icon = "//div[@id='navbar']//li[@class='dropdown']"
 
     def navigateToAllCourses(self):
         self.elementClick(locator=self._all_courses, locatorType="link")
@@ -27,4 +27,6 @@ class NavigationPage(BasePage):
         self.elementClick(locator=self._practice, locatorType="link")
 
     def navigateToUserSettings(self):
-        self.elementClick(locator=self._user_settings_icon, locatorType="xpath")
+        userSettingsElement = self.waitForElement(locator=self._user_settings_icon,
+                                                  locatorType="xpath", pollFrequency=3)
+        self.elementClick(element=userSettingsElement)

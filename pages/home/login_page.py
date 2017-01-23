@@ -39,7 +39,7 @@ class LoginPage(BasePage):
         self.clickLoginButton()
 
     def verifyLoginSuccessful(self):
-        result = self.isElementPresent(locator=".//img[@class='gravatar']", locatorType="xpath" )
+        result = self.isElementPresent(locator="//div[@id='navbar']//li[@class='dropdown']", locatorType="xpath" )
         return result
 
 
@@ -52,7 +52,6 @@ class LoginPage(BasePage):
 
     def logOut(self):
         self.nav.navigateToUserSettings()
-        self.elementClick(locator = ".//a[contains(text(),'Log out')]", locatorType="xpath" )
-
-
-
+        logoutLinkElement = self.waitForElement(locator="//div[@id='navbar']//a[@href='/sign_out']",
+                                                locatorType="xpath", pollFrequency=3)
+        self.elementClick(element=logoutLinkElement)

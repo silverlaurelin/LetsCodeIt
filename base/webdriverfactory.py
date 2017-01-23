@@ -8,7 +8,7 @@ Example:
     wdf = WebDriverFactory(browser)
     wdf.getWebDriverInstance()
 """
-import traceback
+import os
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 
@@ -23,15 +23,6 @@ class WebDriverFactory():
             None
         """
         self.browser = browser
-    """
-        Set chrome driver and iexplorer environment based on OS
-
-        chromedriver = "C:/.../chromedriver.exe"
-        os.environ["webdriver.chrome.driver"] = chromedriver
-        self.driver = webdriver.Chrome(chromedriver)
-
-        PREFERRED: Set the path on the machine where browser will be executed
-    """
 
     def getWebDriverInstance(self):
         """
@@ -55,7 +46,10 @@ class WebDriverFactory():
             driver = webdriver.Firefox(capabilities=caps, executable_path=geckodriver)
         elif self.browser == "chrome":
             # Set chrome driver
-            driver = webdriver.Chrome(r"D:\projects\DRIVERS\chromedriver.exe")
+            chromedriver = r"D:\projects\DRIVERS\chromedriver.exe"
+            os.environ["webdriver.chrome.driver"] = chromedriver
+            driver = webdriver.Chrome(chromedriver)
+
         else:
             driver = webdriver.Chrome(r"D:\projects\DRIVERS\chromedriver.exe")
         # Setting Driver Implicit Time out for An Element
@@ -65,3 +59,4 @@ class WebDriverFactory():
         # Loading browser with App URL
         driver.get(baseURL)
         return driver
+
